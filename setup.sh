@@ -9,6 +9,7 @@ chmod u+x install.sh
 
 curl https://github.com/Drysandwich34/setup/raw/refs/heads/main/dms-backup-20260905-205533.tar.gz > dms.tar.gz
 
+dms backup restore dms.tar.gz
 
 sudo dnf install adw-gtk3-theme -y
 sudo dnf install qt6ct-kde -y
@@ -22,9 +23,11 @@ mkdir -p ~/.config/zed
 curl -fsSL https://raw.githubusercontent.com/Drysandwich34/setup/main/zed/settings.json -o ~/.config/zed/settings.json
 curl -fsSL https://raw.githubusercontent.com/Drysandwich34/setup/main/zed/keymap.json -o ~/.config/zed/keymap.json
 
-sudo dnf install zsh -y
+sudo dnf install zsh zoxide -y
 
-sh -c "$(curl -fsSL https://githubusercontent.com)" "" --unattended
+grep -qxF 'eval "$(zoxide init zsh)"' ~/.zshrc || echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 sudo chsh -s $(which zsh) $USER
 
