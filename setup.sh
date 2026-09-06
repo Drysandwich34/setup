@@ -19,6 +19,8 @@ tee ~/.config/environment.d/qt-theme.conf > /dev/null <<'EOF'
 QT_QPA_PLATFORMTHEME=qt6ct
 EOF
 
+
+curl -f https://zed.dev/install.sh | ZED_CHANNEL=preview sh
 mkdir -p ~/.config/zed
 curl -fsSL https://raw.githubusercontent.com/Drysandwich34/setup/main/zed/settings.json -o ~/.config/zed/settings.json
 curl -fsSL https://raw.githubusercontent.com/Drysandwich34/setup/main/zed/keymap.json -o ~/.config/zed/keymap.json
