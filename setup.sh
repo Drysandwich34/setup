@@ -31,3 +31,21 @@ sudo chsh -s $(which zsh) $USER
 curl https://raw.githubusercontent.com/typecraft-dev/dotfiles/refs/heads/master/starship/.config/starship.toml > ~/.config/starship.toml
 
 git clone https://github.com/Drysandwich34/poovim.git ~/.config/nvim
+
+sudo curl -fsSL https://raw.githubusercontent.com/Drysandwich34/setup/main/firefox/dashboard.xpi -o /usr/lib64/firefox/distribution/dashboard.xpi
+sudo tee /usr/lib64/firefox/distribution/policies.json > /dev/null <<'EOF'
+{
+  "policies": {
+    "ExtensionSettings": {
+      "dashboard@potato.local": {
+        "installation_mode": "normal",
+        "install_url": "https://raw.githubusercontent.com/Drysandwich34/setup/main/firefox/dashboard.xpi",
+        "updates_url": null
+      },
+      "*": {
+        "installation_mode": "allowed"
+      }
+    }
+  }
+}
+EOF
