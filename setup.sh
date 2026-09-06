@@ -31,6 +31,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 sudo chsh -s $(which zsh) $USER
 
+
+curl -sS https://starship.rs/install.sh | sh
+echo "eval "$(starship init zsh)" >> ~/.zshrc
 curl https://raw.githubusercontent.com/typecraft-dev/dotfiles/refs/heads/master/starship/.config/starship.toml > ~/.config/starship.toml
 
 git clone https://github.com/Drysandwich34/poovim.git ~/.config/nvim
